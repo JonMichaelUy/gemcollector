@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Gem
+from django.views.generic.edit import CreateView
+from .models import Gem
 # Create your views here.
 from django.http import HttpResponse
 
@@ -37,3 +39,13 @@ def gems_index(request):
 
 
   # Gem.objects.create(name='Diamon', crystal_system='Cubic', color='white to black, colorless, yellow, pink, red, blue, brown', hardness=10, specific_gravity='3.4-3.5')
+
+def gems_detail(request, gem_id):
+  gem = Gem.objects.get(id=gem_id)
+  return render(request, 'gems/detail.html', { 'gem': gem})
+
+
+class GemCreate(CreateView):
+  model = Gem
+  fields = '__all__'
+  success_url = '/gems/'

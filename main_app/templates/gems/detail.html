@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Gem Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ gem.name }}</span>
+    <p>Crystal System: {{ gem.crystal_system }}</p>
+    <p>Color: {{ gem.color }}</p>
+    <p>Hardness: {{ gem.hardness }}</p>
+    <p>Specific Gravity: {{ gem.specific_gravity }}</p>
+  </div>
+</div>
+
+{% endblock %}

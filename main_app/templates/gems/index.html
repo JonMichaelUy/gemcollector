@@ -3,12 +3,14 @@
 
 {% for gem in gems %}
 <div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ gem.name }}</span>
-    <p>Crystal System: {{ gem.crystal_system }}</p>
-    <p>Color: {{ gem.color }}</p>
-    <p>Hardness: {{ gem.hardness }}</p>
-    <p>Specific Gravity: {{ gem.specific_gravity }}</p>
-  </div>
+  <a href="{% url 'detail' gem.id %}"> </a>
+    <div class="card-content">
+      <span class="card-title">{{ gem.name }}</span>
+      <p>Crystal System: {{ gem.crystal_system }}</p>
+      <p>Color: {{ gem.color }}</p>
+      <p>Hardness: {{ gem.hardness }}</p>
+      <p>Specific Gravity: {{ gem.specific_gravity }}</p>
+    </div>
+</a>
 </div>
 {% endfor %} {% endblock %}
