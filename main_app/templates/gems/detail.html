@@ -10,6 +10,10 @@
     <p>Hardness: {{ gem.hardness }}</p>
     <p>Specific Gravity: {{ gem.specific_gravity }}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'gems_update' gem.id %}">Edit</a>
+    <a href="{% url 'gems_delete' gem.id %}">Delete</a>
+  </div>
 </div>
 
 {% endblock %}

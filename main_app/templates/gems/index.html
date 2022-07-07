@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-<h1>List of Gems</h1>
+<h1>List of Gemstones</h1>
 
 {% for gem in gems %}
 <div class="card">
-  <a href="{% url 'detail' gem.id %}"> </a>
+  <a href="{% url 'detail' gem.id %}"> 
     <div class="card-content">
       <span class="card-title">{{ gem.name }}</span>
       <p>Crystal System: {{ gem.crystal_system }}</p>
@@ -11,6 +11,6 @@
       <p>Hardness: {{ gem.hardness }}</p>
       <p>Specific Gravity: {{ gem.specific_gravity }}</p>
     </div>
-</a>
+  </a>
 </div>
 {% endfor %} {% endblock %}

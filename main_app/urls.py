@@ -7,4 +7,6 @@ urlpatterns = [
   path('gems/', views.gems_index, name='index'),
   path('gems/<int:gem_id>/', views.gems_detail, name='detail'),
   path('gems/create/', views.GemCreate.as_view(), name='gems_create'),
+  path('gems/<int:pk>/update/', views.GemUpdate.as_view(), name='gems_update'),
+  path('gems/<int:pk>/delete/', views.GemDelete.as_view(), name='gems_delete'),
 ]

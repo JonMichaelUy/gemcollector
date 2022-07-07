@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Gem
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Gem
+
 # Create your views here.
 from django.http import HttpResponse
 
@@ -48,4 +49,13 @@ def gems_detail(request, gem_id):
 class GemCreate(CreateView):
   model = Gem
   fields = '__all__'
+  success_url = '/gems/'
+
+
+class GemUpdate(UpdateView):
+  model = Gem
+  fields = ['crystal_system', 'color', 'hardness', 'specific_gravity']
+
+class GemDelete(DeleteView):
+  model = Gem
   success_url = '/gems/'
