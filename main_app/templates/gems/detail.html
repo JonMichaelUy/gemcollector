@@ -23,6 +23,16 @@
       {% csrf_token %} {{ polishing_form.as_p }}
       <input type="submit" class="btn" value="Add Polishing" />
     </form>
+    <br />
+    {% if gem.polished_for_today %}
+    <div class="card-panel teal-text center-align">
+      {{gem.name}} has been sufficiently polished for today
+    </div>
+    {% else %}
+    <div class="card-panel red-text center-align">
+      {{gem.name}} might need polishing
+    </div>
+    {% endif %}
     <table class="striped">
       <thead>
         <tr>

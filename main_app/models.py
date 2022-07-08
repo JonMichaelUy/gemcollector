@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 
 CLEANERS = (
@@ -17,11 +18,16 @@ class Gem(models.Model):
   hardness = models.IntegerField()
   specific_gravity = models.CharField(max_length=100)
 
+  def polished_for_today(self):
+    return self.polishing_set.filter(date=date.today()).count() >= 1
+    
   def __str__(self):
     return self.name
 
   def get_absolute_url(self):
     return reverse('detail', kwargs={'gem_id': self.id})
+
+
 
 class Polishing(models.Model):
   date = models.DateField('date polished')
