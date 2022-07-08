@@ -24,7 +24,7 @@ class Gem(models.Model):
     return reverse('detail', kwargs={'gem_id': self.id})
 
 class Polishing(models.Model):
-  date = models.DateField()
+  date = models.DateField('date polished')
   cleaner = models.CharField(
     max_length=1,
     choices=CLEANERS,
@@ -33,3 +33,5 @@ class Polishing(models.Model):
   gem = models.ForeignKey(Gem, on_delete=models.CASCADE)
   def __str__(self):
     return f"{self.get_cleaner_display()} on {self.date}"
+  class Meta:
+    ordering = ['-date']
