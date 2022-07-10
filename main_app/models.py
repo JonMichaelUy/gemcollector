@@ -1,14 +1,14 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
-
+from django.contrib.auth.models import User
 
 CLEANERS = (
   ('C', 'Cloth'),
   ('S', 'Silica'),
   ('A', 'Ammonia')
 )
-# Create your models here.
+
 
 
 class Gem(models.Model):
@@ -17,6 +17,7 @@ class Gem(models.Model):
   color = models.TextField(max_length=250)
   hardness = models.IntegerField()
   specific_gravity = models.CharField(max_length=100)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def polished_for_today(self):
     return self.polishing_set.filter(date=date.today()).count() >= 1
