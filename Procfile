@@ -1,1 +1,1 @@
-web: gunicorn gemcollector.wsgi
+web:gunicorn gemcollector.wsgi
